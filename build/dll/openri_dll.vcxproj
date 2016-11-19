@@ -1,0 +1,170 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{E816A679-CBDE-4FBE-BE80-9D9A147E6F04}</ProjectGuid>
+    <RootNamespace>openri</RootNamespace>
+    <Keyword>MFCDLLProj</Keyword>
+    <ProjectName>openri_dll</ProjectName>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <IncludePath>$(SolutionDir)..\..\3rdparty\opencv\include;$(SolutionDir)..\..\3rdparty\opencv\include\opencv2;$(SolutionDir)..\..\3rdparty\opencv\include\opencv;$(SolutionDir)..\..\3rdparty\pthread\include;$(SolutionDir)..\..\3rdparty\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)..\..\3rdparty\opencv\x64\vc14\lib;$(SolutionDir)..\..\3rdparty\pthread\lib\x64;$(LibraryPath)</LibraryPath>
+    <TargetName>openri</TargetName>
+    <GenerateManifest>false</GenerateManifest>
+    <OutDir>$(SolutionDir)..\..\build\dll\$(Platform)\$(Configuration)\</OutDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_USRDLL;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(SolutionDir);$(SolutionDir)..\..\include;$(SolutionDir)..\..\3rdparty\opencv\include</AdditionalIncludeDirectories>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <PrecompiledHeaderFile>
+      </PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>
+      </PrecompiledHeaderOutputFile>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <EnableEnhancedInstructionSet>AdvancedVectorExtensions</EnableEnhancedInstructionSet>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <ModuleDefinitionFile>.\openri_dll.def</ModuleDefinitionFile>
+      <AdditionalLibraryDirectories>$(SolutionDir)..\..\3rdparty\opencv\x64\vc14\lib;$(SolutionDir)..\..\3rdparty\freeglut\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>mfcs140u.lib;opencv_world310.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <Midl>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0409</Culture>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+    <PreBuildEvent>
+      <Command>
+      </Command>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <None Include="openri_dll.def" />
+    <None Include="res\openri_dll.rc2" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\src\openri.cpp" />
+    <ClCompile Include="..\..\src\ri_array.cpp" />
+    <ClCompile Include="..\..\src\ri_bitmap.cpp" />
+    <ClCompile Include="..\..\src\ri_bit_buffer.cpp" />
+    <ClCompile Include="..\..\src\ri_blob.cpp" />
+    <ClCompile Include="..\..\src\ri_buffer.cpp" />
+    <ClCompile Include="..\..\src\ri_camera_httpd.cpp" />
+    <ClCompile Include="..\..\src\ri_color.cpp" />
+    <ClCompile Include="..\..\src\ri_com.cpp" />
+    <ClCompile Include="..\..\src\ri_data.cpp" />
+    <ClCompile Include="..\..\src\ri_date_time.cpp" />
+    <ClCompile Include="..\..\src\ri_dbg.cpp" />
+    <ClCompile Include="..\..\src\ri_fifo.cpp" />
+    <ClCompile Include="..\..\src\ri_file_vc.cpp" />
+    <ClCompile Include="..\..\src\ri_hash.cpp" />
+    <ClCompile Include="..\..\src\ri_hash_map.cpp" />
+    <ClCompile Include="..\..\src\ri_http.cpp" />
+    <ClCompile Include="..\..\src\ri_httpd.cpp" />
+    <ClCompile Include="..\..\src\ri_image.cpp" />
+    <ClCompile Include="..\..\src\ri_lock.cpp" />
+    <ClCompile Include="..\..\src\ri_log.cpp" />
+    <ClCompile Include="..\..\src\ri_mat.cpp" />
+    <ClCompile Include="..\..\src\ri_mem.cpp" />
+    <ClCompile Include="..\..\src\ri_motor_httpd.cpp" />
+    <ClCompile Include="..\..\src\ri_runtime.cpp" />
+    <ClCompile Include="..\..\src\ri_semaphore.cpp" />
+    <ClCompile Include="..\..\src\ri_socket.cpp" />
+    <ClCompile Include="..\..\src\ri_string.cpp" />
+    <ClCompile Include="..\..\src\ri_thread.cpp" />
+    <ClCompile Include="..\..\src\ri_timer_us.cpp" />
+    <ClCompile Include="..\..\src\ri_utf8.cpp" />
+    <ClCompile Include="..\..\src\ri_value.cpp" />
+    <ClCompile Include="openri_dll.cpp" />
+    <ClCompile Include="stdafx.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\include\openri.h" />
+    <ClInclude Include="..\..\include\ri_array.h" />
+    <ClInclude Include="..\..\include\ri_bitmap.h" />
+    <ClInclude Include="..\..\include\ri_bit_buffer.h" />
+    <ClInclude Include="..\..\include\ri_blob.h" />
+    <ClInclude Include="..\..\include\ri_buffer.h" />
+    <ClInclude Include="..\..\include\ri_color.h" />
+    <ClInclude Include="..\..\include\ri_com.h" />
+    <ClInclude Include="..\..\include\ri_data.h" />
+    <ClInclude Include="..\..\include\ri_date_time.h" />
+    <ClInclude Include="..\..\include\ri_dbg.h" />
+    <ClInclude Include="..\..\include\ri_fifo.h" />
+    <ClInclude Include="..\..\include\ri_file.h" />
+    <ClInclude Include="..\..\include\ri_hash.h" />
+    <ClInclude Include="..\..\include\ri_hash_map.h" />
+    <ClInclude Include="..\..\include\ri_http.h" />
+    <ClInclude Include="..\..\include\ri_httpd.h" />
+    <ClInclude Include="..\..\include\ri_image.h" />
+    <ClInclude Include="..\..\include\ri_lock.h" />
+    <ClInclude Include="..\..\include\ri_log.h" />
+    <ClInclude Include="..\..\include\ri_mat.h" />
+    <ClInclude Include="..\..\include\ri_mem.h" />
+    <ClInclude Include="..\..\include\ri_motor_httpd.h" />
+    <ClInclude Include="..\..\include\ri_runtime.h" />
+    <ClInclude Include="..\..\include\ri_semaphore.h" />
+    <ClInclude Include="..\..\include\ri_socket.h" />
+    <ClInclude Include="..\..\include\ri_string.h" />
+    <ClInclude Include="..\..\include\ri_thread.h" />
+    <ClInclude Include="..\..\include\ri_timer_us.h" />
+    <ClInclude Include="..\..\include\ri_type.h" />
+    <ClInclude Include="..\..\include\ri_utf8.h" />
+    <ClInclude Include="..\..\include\ri_value.h" />
+    <ClInclude Include="openri_dll.h" />
+    <ClInclude Include="Resource.h" />
+    <ClInclude Include="ri_config.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="targetver.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="openri_dll.rc" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
