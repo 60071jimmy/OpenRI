@@ -25,7 +25,6 @@ extern "C"
 {
 #endif
 
-
 RI_API int OpenRI_InitLib() {
 	if (openriIsInited != 0) {
 		return 3;
@@ -52,7 +51,7 @@ RI_API int OpenRI_InitLib() {
 	if (ret <= 0) {
 		return ret;
 	}
-
+#if defined(RI_UR)
 	ret = riSocket_InitLib();
 	if (ret <= 0) {
 		return ret;
@@ -63,7 +62,7 @@ RI_API int OpenRI_InitLib() {
 		return ret;
 	}
 
-
+#endif
 	openriIsInited = 1;
 	return 1;
 }

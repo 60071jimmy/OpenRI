@@ -52,7 +52,7 @@ limitations under the License.
 //0313
 #include <raspicam/raspicam_cv.h>
 MPU6050 mpu;
-#elif (RI_WINDOWS)
+#elif defined(RI_WINDOWS)
 #include <stdint.h>
 #include <WinBase.h>
 #endif
@@ -284,7 +284,7 @@ extern "C"
         struct timeb t;
         ftime(&t);
         return 1000 * t.time + t.millitm;
-#elif(RI_WINDOWS)
+#elif defined(RI_WINDOWS)
         SYSTEMTIME t;
         GetSystemTime(&t);
         return 1000 * t.wSecond + t.wMilliseconds;
@@ -1102,7 +1102,7 @@ extern "C"
             RI_LOGI("等待fileSet...\n");
 #if defined(RI_LINUX)
             sleep(2);
-#elif(RI_WINDOWS)
+#elif defined(RI_WINDOWS)
             Sleep(2000);
 #endif
         }
@@ -1148,7 +1148,7 @@ extern "C"
                 }
 #if defined(RI_LINUX)
                 sleep(2);
-#elif(RI_WINDOWS)
+#elif defined(RI_WINDOWS)
                 Sleep(2000);
 #endif
             }
@@ -1237,7 +1237,7 @@ extern "C"
                     RI_LOGE("open input file fail!saveTo=%s",saveTo);
 #if defined(RI_LINUX)
                     sleep(2);
-#elif(RI_WINDOWS)
+#elif defined(RI_WINDOWS)
                     Sleep(2000);
 #endif//每兩秒嘗試一次開啟檔案
                 }
@@ -1268,7 +1268,7 @@ extern "C"
                         }
 #if defined(RI_LINUX)
                         sleep(2);
-#elif(RI_WINDOWS)
+#elif defined(RI_WINDOWS)
                         Sleep(2000);
 #endif
                         if (runningStatus != 2) {
@@ -1431,7 +1431,7 @@ extern "C"
                 }
 #if defined(RI_LINUX)
                 sleep(2);
-#elif(RI_WINDOWS)
+#elif defined(RI_WINDOWS)
                 Sleep(2000);
 #endif
             }
@@ -1582,7 +1582,7 @@ extern "C"
                     RI_LOGE("open input file fail!saveTo=%s",saveTo);
 #if defined(RI_LINUX)
                     sleep(2);
-#elif(RI_WINDOWS)
+#elif defined(RI_WINDOWS)
                     Sleep(2000);
 #endif
                 }
@@ -1615,7 +1615,7 @@ extern "C"
                         }
 #if defined(RI_LINUX)
                         sleep(2);
-#elif(RI_WINDOWS)
+#elif defined(RI_WINDOWS)
                         Sleep(2000);
 #endif
                         if (runningStatus != 2) {
@@ -2164,7 +2164,7 @@ extern "C"
                 RI_LOGI("等待Socket關閉：%d",times);
 #if defined(RI_LINUX)
                 sleep(2);
-#elif(RI_WINDOWS)
+#elif defined(RI_WINDOWS)
                 Sleep(2000);
 #endif
             }

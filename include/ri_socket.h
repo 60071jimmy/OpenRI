@@ -25,7 +25,7 @@ limitations under the License.
   //#include <unistd.h>
   #include <conio.h>
   #include <process.h>
-  #include <winsock.h>
+  //#include <winsock.h>
 //  #include <Ws2def.h>
 //  #include <Wsk.h>
   //#include <winsock2.h>

@@ -22,20 +22,7 @@ limitations under the License.
 #define OPENRI_DATETIME (201608151416ul)
 
 
-//#include "ri_config.h"
-// 2016/11/07 You-Ching
-// This version does not have "ri_config.h";
-// thus, "RI_WINDOWS" & "RI_VC" & "RI_PAGE_SIZE" are not defined.
-// So, I define them here to let this code able to be compiled.
-// I also marked the above "#include" code.
-#define RI_WINDOWS
-#define RI_VC
-#define RI_PAGE_SIZE 4096
-
-// 2016/11/08 You-Ching
-// "ri_" libraries here are used for dll.
-#define RI_EXPORT_API
-
+#include "ri_config.h"
 
 
 #ifdef RI_EXPORT_API
@@ -80,11 +67,8 @@ limitations under the License.
 #include "ri_bitmap.h"
 #include "ri_mat.h"
 #include "ri_hash.h"
-#ifdef RI_UR
-#else
-  #include "ri_socket.h"
-  #include "ri_httpd.h"
-#endif
+#include "ri_socket.h"
+#include "ri_httpd.h"
 #include "ri_http.h"
 #include "ri_date_time.h"
 #include "ri_blob.h"
